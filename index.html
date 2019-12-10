@@ -1,0 +1,329 @@
+<html>
+<head>
+	<title>ChatJS - Programacao de Scripts - Fatec Mogi Mirim</title>	
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js"></script>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+	<!-- Div com o formulário de acesso, para inserir o apelido -->
+	<div id='acesso_usuario'>
+		<form id='login'>
+			<input type='text' placeholder='Insira seu apelido' name='apelido' id='apelido' />
+			<input type='submit' value='Entrar' />
+		</form>
+	</div>
+	<!-- Div principal onde fica o painel de mensagens e lista de usuários -->
+	<div id='sala_chat'>
+		<div class="container-fluid h-100">
+			<div class="row justify-content-center h-100">
+				<div class="col-md-4 col-xl-3 chat"><div class="card mb-sm-3 mb-md-0 contacts_card">
+					<div class="card-header">
+						<div class="input-group">
+							<input type="text" placeholder="Search..." id="pesquisar" class="form-control search">
+							<div class="input-group-prepend">
+								<span class="input-group-text search_btn"><i class="fas fa-search"></i></span>
+							</div>
+						</div>
+					</div>
+					<div class="card-body contacts_body">
+						<ui class="contacts" id="lista_usuarios">
+						<li class="active">
+							<div class="d-flex bd-highlight">
+								<div class="img_cont">
+									<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img">
+									<span class="online_icon"></span>
+								</div>
+								<div class="user_info">
+									<span>Khalid</span>
+									<p>Kalid is online</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="d-flex bd-highlight">
+								<div class="img_cont">
+									<img src="https://2.bp.blogspot.com/-8ytYF7cfPkQ/WkPe1-rtrcI/AAAAAAAAGqU/FGfTDVgkcIwmOTtjLka51vineFBExJuSACLcBGAs/s320/31.jpg" class="rounded-circle user_img">
+									<span class="online_icon offline"></span>
+								</div>
+								<div class="user_info">
+									<span>Taherah Big</span>
+									<p>Taherah left 7 mins ago</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="d-flex bd-highlight">
+								<div class="img_cont">
+									<img src="https://i.pinimg.com/originals/ac/b9/90/acb990190ca1ddbb9b20db303375bb58.jpg" class="rounded-circle user_img">
+									<span class="online_icon"></span>
+								</div>
+								<div class="user_info">
+									<span>Sami Rafi</span>
+									<p>Sami is online</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="d-flex bd-highlight">
+								<div class="img_cont">
+									<img src="http://profilepicturesdp.com/wp-content/uploads/2018/07/sweet-girl-profile-pictures-9.jpg" class="rounded-circle user_img">
+									<span class="online_icon offline"></span>
+								</div>
+								<div class="user_info">
+									<span>Nargis Hawa</span>
+									<p>Nargis left 30 mins ago</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="d-flex bd-highlight">
+								<div class="img_cont">
+									<img src="https://static.turbosquid.com/Preview/001214/650/2V/boy-cartoon-3D-model_D.jpg" class="rounded-circle user_img">
+									<span class="online_icon offline"></span>
+								</div>
+								<div class="user_info">
+									<span>Rashid Samim</span>
+									<p>Rashid left 50 mins ago</p>
+								</div>
+							</div>
+						</li>
+						</ui>
+					</div>
+					<div class="card-footer"></div>
+				</div></div>
+				<div class="col-md-8 col-xl-6 chat">
+					<div class="card">
+						<div class="card-header msg_head">
+							<div class="d-flex bd-highlight">
+								<div class="img_cont">
+									<h2 class="user_icon" id="user_conversando">T</h2>
+									<span class="online_icon"></span>
+								</div>
+								<div class="user_info">
+									<span id="conversando">Chat with Khalid</span>
+									<p>1767 Messages</p>
+								</div>
+								<div class="video_cam">
+									<span><i class="fas fa-video"></i></span>
+									<span><i class="fas fa-phone"></i></span>
+								</div>
+							</div>
+							<span id="action_menu_btn"><i class="fas fa-ellipsis-v"></i></span>
+							<div class="action_menu">
+								<ul>
+									<li><i class="fas fa-user-circle"></i> View profile</li>
+									<li><i class="fas fa-users"></i> Add to close friends</li>
+									<li><i class="fas fa-plus"></i> Add to group</li>
+									<li><i class="fas fa-ban"></i> Block</li>
+								</ul>
+							</div>
+						</div>
+						<div class="card-body msg_card_body">
+								<div id="historico_mensagens"></div>
+							
+						</div>
+						<form id="chat" class="card-footer">
+							<div class="input-group">
+								<div class="input-group-append">
+									<span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
+								</div>
+								<textarea name="" class="form-control type_msg" placeholder="Type your message..." id='texto_mensagem' name='texto_mensagem' ></textarea>
+								
+								<div id="btn_enviar" class="input-group-append">
+									<span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
+								</div>
+								
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+		var socket = io.connect();
+		var usuario_selecionado = null;
+		var user_config = [{
+			apelido: "",
+			online:1,
+			ultima_entrada: new Date(),
+			conversando_idUser: 0
+		}];
+		var user_filter= [{
+			apelido: "",
+			online:1,
+			ultima_entrada: new Date(),
+			conversando_idUser: 0
+		}];
+		// Ao enviar uma mensagem
+		$("form#chat").submit(function(e){
+			e.preventDefault();
+			var mensagem = $(this).find("#texto_mensagem").val();
+			var usuario = usuario_selecionado; // Usuário selecionado na lista lateral direita
+			// Evento acionado no servidor para o envio da mensagem
+			// junto com o nome do usuário selecionado da lista
+			socket.emit("enviar mensagem", {msg: mensagem, usu: usuario}, function(){
+				$("form#chat #texto_mensagem").val("");
+			});
+		});
+		// Resposta ao envio de mensagens do servidor
+		socket.on("atualizar mensagens", function(dados){
+			var mensagem_formatada = $("<p />").text(dados.msg).addClass(dados.tipo);
+			$("#historico_mensagens").append(mensagem_formatada);
+		});
+		
+		$("form#login").submit(function(e){
+			e.preventDefault();
+			// Evento enviado quando o usuário insere um apelido
+			socket.emit("entrar", $(this).find("#apelido").val(), function(valido){
+				if(valido){
+					// Caso não exista nenhum usuário com o mesmo nome, o painel principal é exibido
+					$("#acesso_usuario").hide();
+					$("#sala_chat").show();
+				}else{
+					// Do contrário o campo de mensagens é limpo e é apresentado um alert
+					$("#acesso_usuario").val("");
+					alert("Nome já utilizado nesta sala");
+				}
+			});
+		});
+		// Quando servidor enviar uma nova lista de usuários
+		// o select é limpo e reinserida a opção Todos
+		// junto de toda a lista de usuários.
+		socket.on("atualizar usuarios", function(usuarios){
+			user_config = [];
+			user_filter = [];
+			$("#lista_usuarios").empty();
+			$("#lista_usuarios").append(
+							'<li class="active">'
+								+'<div class="d-flex bd-highlight">'
+									+'<div class="img_cont">'
+										+'<img src="https://cdn3.iconfinder.com/data/icons/online-user-1/120/group-2-512.png" class="rounded-circle user_img">'
+										+'<span class="online_icon"></span>'
+									+'</div>'
+									+'<div class="user_info">'
+										+'<span>Todos Usuários</span>'
+										+'<p>'+usuarios.length+' Onlines</p>'
+									+'</div>'
+								+'</div>'
+							+'</li>');
+				var cont = 0;
+				$.each(usuarios, function(indice){
+					$("#lista_usuarios").append(
+							'<li>'
+								+'<div class="d-flex bd-highlight">'
+									+'<div class="img_cont">'
+										+'<h2 class="user_icon">'+usuarios[indice].charAt(0).toUpperCase()+'</h2>' 
+										+'<span class="online_icon"></span>'
+									+'</div>'
+									+'<div class="user_info">'
+										+'<span>'+usuarios[indice]+'</span>' 
+										+'<p>Online há 2 horas</p>'
+									+'</div>'
+								+'</div>'
+							+'</li>');
+							
+					user_config.push({
+						apelido: usuarios[cont],
+						online:1,
+						ultima_entrada: new Date(),
+						conversando_idUser: 0 
+					});
+					cont++;
+			});
+			
+			user_filter = user_config.slice();
+		});
+		
+		function filtrar(apelido) {
+  			return user_config.filter(function(el) {
+     			return (el.apelido.toLowerCase().indexOf(apelido.toLowerCase()) >-1 && el.apelido != "");
+  			})
+		}
+		const pesquisar = (apelido) => {
+			$("#lista_usuarios").empty();
+			const result = filtrar(apelido);
+			user_filter = result.slice();
+			$("#lista_usuarios").append(
+							'<li class="active">'
+								+'<div class="d-flex bd-highlight">'
+									+'<div class="img_cont">'
+										+'<img src="https://cdn3.iconfinder.com/data/icons/online-user-1/120/group-2-512.png" class="rounded-circle user_img">'
+										+'<span class="online_icon"></span>'
+									+'</div>'
+									+'<div class="user_info">'
+										+'<span>Todos Usuários</span>'
+										+'<p>'+user_config.length+' Onlines</p>'
+									+'</div>'
+								+'</div>'
+							+'</li>');
+			result.forEach(function(usuario) {
+				$("#lista_usuarios").append(
+							'<li>'
+								+'<div class="d-flex bd-highlight">'
+									+'<div class="img_cont">'
+										+'<h2 class="user_icon">'+usuario.apelido.charAt(0).toUpperCase()+'</h2>' 
+										+'<span class="online_icon"></span>'
+									+'</div>'
+									+'<div class="user_info">'
+										+'<span>'+usuario.apelido+'</span>' 
+										+'<p>Online há 2 horas</p>'
+									+'</div>'
+								+'</div>'
+							+'</li>');
+			
+			});
+		}
+		
+		$("#pesquisar").keypress(function (e) {
+			pesquisar($("#pesquisar").val());
+		})
+
+		const conversando = (usuario) => {
+			if(usuario == 0){
+				$("#conversando").text("Todos Usuários");
+				$("#user_conversando").text("T");
+			}else{				
+				$("#conversando").text(usuario.apelido);
+				$("#user_conversando").text(usuario.apelido.charAt(0).toUpperCase());
+			}			
+		}
+		
+		$(document).on("click", "#lista_usuarios li", function() {
+			
+			$("#lista_usuarios li").each(function(n) {
+				$( "li" ).removeClass( "active" );
+			});
+			$(this).addClass("active");
+			if($(this).prevAll().length > 0){
+				conversando(user_filter[$(this).prevAll().length-1]);
+				usuario_selecionado = user_filter[$(this).prevAll().length-1].apelido;
+			}else{
+				conversando(0);
+				usuario_selecionado = null;
+			}
+			
+		});
+
+		$("#btn_enviar").click(function() {
+			if($("#texto_mensagem").val() != ""){
+			  $( "#chat" ).submit();
+			  $("#texto_mensagem").val();
+			}
+		});
+</script>
+
+</body>
+</html>
